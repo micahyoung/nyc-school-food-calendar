@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'XmlCalendarConverter' do
   describe '#parse' do
     let(:xml) { File.read(fixture('input.xml')) }
-    let(:data) { NycLunchCal::XmlCalendarConverter.new.parse(xml) }
+    let(:data) { NycSchoolFoodCal::XmlCalendarConverter.new.parse(xml) }
 
     it 'should parse' do
       expect(data["1"]).to eq <<EOF

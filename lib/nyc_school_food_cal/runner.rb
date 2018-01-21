@@ -1,9 +1,9 @@
 require 'date'
 
-class NycLunchCal::Runner
+class NycSchoolFoodCal::Runner
   def initialize
-    @pdf_xml_converter = NycLunchCal::PdfXmlConverter.new
-    @xml_calendar_parser = NycLunchCal::XmlCalendarConverter.new
+    @pdf_xml_converter = NycSchoolFoodCal::PdfXmlConverter.new
+    @xml_calendar_parser = NycSchoolFoodCal::XmlCalendarConverter.new
   end
 
   def run(pdf_file, day)
