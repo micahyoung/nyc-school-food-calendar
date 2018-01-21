@@ -2,7 +2,7 @@ require 'nokogiri'
 
 class NycSchoolFoodCal::XmlCalendarConverter
   CELL_WIDTH = 144
-  CELL_HEIGHT = 164
+  CELL_HEIGHT = 149
 
   def parse(xml)
     doc = Nokogiri::XML(xml)
