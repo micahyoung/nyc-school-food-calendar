@@ -12,4 +12,10 @@ Organic Purple Corn Flakes
 Seasonal Fresh Fruit
 EOF
   end
+
+  it 'never crashes' do
+    [1..32].each do |day|
+      expect(NycSchoolFoodCal::Runner.new.run(fixture('input.pdf'), day)).to be_a(String)
+    end
+  end
 end
