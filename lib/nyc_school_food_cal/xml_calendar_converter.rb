@@ -1,52 +1,87 @@
 require 'nokogiri'
 
 class NycSchoolFoodCal::XmlCalendarConverter
-  CELL_WIDTH = 144
-  CELL_HEIGHT = 149
-
   def parse(xml)
     doc = Nokogiri::XML(xml)
-    date_location = []
-    data = {}
-    doc.css('span').each do |span|
-      content = span.css('char').map { |e| e['c'] }.join('')
-      bbox = span.attr('bbox')
-      content_location = ContentLocation.new(content, bbox)
+    day_collection = DayCollection.new
+    content_locations = []
 
-      if content_location.is_day?
-        date_location.push(content_location)
-      else
-        matching_content_location = date_location.reverse.find do |day_content_location|
-          content_location.right_x > (day_content_location.right_x - CELL_WIDTH) &&
-          content_location.right_x < (day_content_location.right_x) &&
-              content_location.bottom_y > day_content_location.bottom_y &&
-              content_location.bottom_y < (day_content_location.bottom_y + CELL_HEIGHT)
-        end
+    doc.css('word').each do |span|
+      content_location = ContentLocation.new(span.text, span.attr('xMin'), span.attr('yMin'), span.attr('xMax'), span.attr('yMax'))
 
-        if matching_content_location
-          data[matching_content_location.day] ||= ''
-          data[matching_content_location.day] += content_location.content + "\n"
-        end
+      if day_collection.is_day?(content_location)
+        day_collection.add(content_location)
+      elsif day_collection.is_content?(content_location)
+        content_locations.push(content_location)
       end
     end
 
-    data
+    {}.tap do |data|
+      content_locations.group_by {|l| day_collection.find_content_day(l) }.each do |day, day_content_locations|
+        line_groups = day_content_locations.group_by {|content_location| content_location.bottom_y}.sort_by(&:first)
+
+        data[day] = line_groups.map {|_, line_content_locations| line_content_locations.map(&:content).join(" ")}.join("\n")
+      end
+    end
   end
 
   class ContentLocation
     attr_reader :right_x, :bottom_y, :content
 
-    def initialize(content, bbox)
+    def initialize(content, xMin, yMin, xMax, yMax)
       @content = content.strip
-      @left_x, @top_y, @right_x, @bottom_y = bbox.split(/ /).map(&:to_i)
+      @left_x, @top_y, @right_x, @bottom_y = xMin.to_i, yMin.to_i, xMax.to_i, yMax.to_i
+    end
+  end
+
+  class DayCollection
+    CELL_WIDTH = 144
+    CELL_HEIGHT = 149
+
+    def initialize()
+      @day_locations = []
     end
 
-    def is_day?
-      !day.nil?
+    def add(location)
+      if !@day_locations.any? {|l| l.content == location.content}
+        @day_locations.push(location)
+        true
+      else
+        false
+      end
     end
 
-    def day
-      @content[/\d+$/]
+    def find_content_day(content_location)
+      matching_day_location = @day_locations.reverse.find {|day_location| day_contains_location?(day_location, content_location)}
+
+      if matching_day_location
+        matching_day_location.content
+      end
+    end
+
+    def is_day?(content_location)
+      !content_location.content[/^\d+$/].nil? && is_valid_y_for_day?(content_location)
+    end
+
+    def is_content?(content_location)
+      content_location.content[/^\d+$/].nil?
+    end
+
+    private
+
+    def is_valid_y_for_day?(content_location)
+      if @day_locations.empty?
+        content_location.content == '1'
+      else
+        content_location.bottom_y >= @day_locations.map(&:bottom_y).min
+      end
+    end
+
+    def day_contains_location?(day_location, content_location)
+      content_location.right_x > (day_location.right_x - CELL_WIDTH) &&
+          content_location.right_x < (day_location.right_x) &&
+          content_location.bottom_y > day_location.bottom_y &&
+          content_location.bottom_y < (day_location.bottom_y + CELL_HEIGHT)
     end
   end
 end
