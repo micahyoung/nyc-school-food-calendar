@@ -13,7 +13,7 @@ Seasonal Fresh Fruit
 EOF
   end
 
-  it 'never crashes' do
+  it 'parses and logs for all fixtures' do
     File.open(fixture('all/audit.log'), 'w') do |audit_log|
       Dir[fixture('all/*.pdf')].each do |file|
         audit_log.puts "=== #{Pathname.new(file).relative_path_from(Pathname.new(__FILE__))} ==="
