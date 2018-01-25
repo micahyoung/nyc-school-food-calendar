@@ -1,5 +1,5 @@
 class CalendarBuilder
-  CELL_WIDTH = 144
+  CELL_WIDTH = 140
   CELL_HEIGHT = 149
 
   def initialize(day_locations=nil, content_locations=nil)
