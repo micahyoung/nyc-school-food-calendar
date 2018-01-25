@@ -13,14 +13,6 @@ describe 'ContentCollactor' do
             expect(collector.day_locations).to eq([location])
           end
         end
-
-        context 'and new day is greater than 1' do
-          it 'does not add' do
-            location = ContentLocation.new('2', 1, 1, 1, 1)
-            collector.add(location)
-            expect(collector.day_locations).to eq([])
-          end
-        end
       end
 
       context 'and collector contains an existing day' do

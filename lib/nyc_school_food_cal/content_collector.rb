@@ -25,11 +25,7 @@ class ContentCollector
   private
 
   def is_valid_y_for_day?(content_location)
-    if @day_locations.empty?
-      content_location.content == '1'
-    else
-      content_location.bottom_y >= @day_locations.map(&:bottom_y).min
-    end
+    content_location.bottom_y >= (@day_locations.map(&:bottom_y).min || 0)
   end
 
 end
