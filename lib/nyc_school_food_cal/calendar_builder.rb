@@ -1,4 +1,4 @@
-class CalendarBuilder
+class NycSchoolFoodCal::CalendarBuilder
   CELL_WIDTH = 140
   CELL_HEIGHT = 149
 

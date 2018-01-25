@@ -1,4 +1,4 @@
-class ContentLocation
+class NycSchoolFoodCal::ContentLocation
   attr_reader :right_x, :bottom_y, :content
 
   def initialize(content, left_x, top_y, right_x, bottom_y)

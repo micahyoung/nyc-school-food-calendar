@@ -1,4 +1,4 @@
-class ContentCollector
+class NycSchoolFoodCal::ContentCollector
   attr_accessor :day_locations, :content_locations
 
   def initialize()
