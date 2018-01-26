@@ -6,8 +6,6 @@ class NycSchoolFoodCal::FileFinder
   def get_content(calendar:, month:)
     target_file = File.join(@data_file_path, month, "#{calendar}.pdf")
 
-    puts @data_file_path
-
     file = available_files.find do |file|
       file == target_file
     end
