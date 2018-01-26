@@ -35,4 +35,11 @@ EOF
     end
   end
 
+  it 'returns warning when not found' do
+    expect(NycSchoolFoodCal::Logger).to receive(:warn)
+    expect(runner.run(calendar: 'never-find', month: '1', day: '1')).to eq <<EOF.rstrip
+No menu found for this day
+EOF
+  end
+
 end

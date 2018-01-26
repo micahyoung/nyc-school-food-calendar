@@ -13,7 +13,9 @@ class NycSchoolFoodCal::Runner
       pdf_xml = @pdf_xml_converter.parse(calendar_pdf)
       calendar = @xml_calendar_parser.parse(pdf_xml)
       calendar.fetch(day)
-    rescue RuntimeError, KeyError
+    rescue RuntimeError, KeyError => e
+      NycSchoolFoodCal::Logger.warn(e)
+
       "No menu found for this day"
     end
   end
