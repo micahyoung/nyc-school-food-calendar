@@ -1,4 +1,4 @@
-=== ../../fixtures/all/prek-8-vegetarian-lunch.pdf ===
+=== ../../fixtures/data/1/prek-8-vegetarian-lunch.pdf ===
 01 ------------------------------
 Pasta Fagioli
 Warm Dinner Roll
@@ -228,7 +228,7 @@ OFFERED DAILY
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/prek-8-alternative-lunch.pdf ===
+=== ../../fixtures/data/1/prek-8-alternative-lunch.pdf ===
 01 ------------------------------
 Red, White and Green
 Parmigiana Roasted
@@ -467,7 +467,7 @@ Confetti Corn Salad
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/puree-lunch.pdf ===
+=== ../../fixtures/data/1/puree-lunch.pdf ===
 01 ------------------------------
 Popcorn Chicken
 Soft Roll
@@ -660,7 +660,7 @@ Pears
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/hs-special-needs-lunch.pdf ===
+=== ../../fixtures/data/1/hs-special-needs-lunch.pdf ===
 01 ------------------------------
 Popcorn Chicken
 Dipping Sauce Cup
@@ -915,7 +915,7 @@ Fresh Cilantro Slaw
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/early-childhood-breakfast.pdf ===
+=== ../../fixtures/data/1/early-childhood-breakfast.pdf ===
 01 ------------------------------
 French Toast Sticks
 Served with Syrup
@@ -1115,7 +1115,7 @@ Milk
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/hot-morning-snack-saturday.pdf ===
+=== ../../fixtures/data/1/hot-morning-snack-saturday.pdf ===
 01 ------------------------------
 No menu found for this day
 ---------------------------------
@@ -1212,7 +1212,7 @@ No menu found for this day
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/hot-afterschool.pdf ===
+=== ../../fixtures/data/1/hot-afterschool.pdf ===
 01 ------------------------------
 Turkey Cheeseburger
 Deluxe Toppings
@@ -1414,7 +1414,7 @@ Milk
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/express-breakfast.pdf ===
+=== ../../fixtures/data/1/express-breakfast.pdf ===
 01 ------------------------------
 Back to the Roots®
 Cinnamon Cluster
@@ -1595,7 +1595,7 @@ Seasonal Fresh Fruit
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/ms-lunch.pdf ===
+=== ../../fixtures/data/1/ms-lunch.pdf ===
 01 ------------------------------
 Popcorn Chicken
 Dipping Sauce Cup
@@ -1859,7 +1859,7 @@ Salad Bar
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/hs-lunch.pdf ===
+=== ../../fixtures/data/1/hs-lunch.pdf ===
 01 ------------------------------
 Popcorn Chicken
 Dipping Sauce Cup
@@ -2130,7 +2130,7 @@ Salad Bar
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/prek-8-special-needs-lunch.pdf ===
+=== ../../fixtures/data/1/prek-8-special-needs-lunch.pdf ===
 01 ------------------------------
 Popcorn Chicken
 Dipping Sauce Cup
@@ -2425,7 +2425,7 @@ OFFERED DAILY
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/prek-8-express-hot-lunch.pdf ===
+=== ../../fixtures/data/1/prek-8-express-hot-lunch.pdf ===
 01 ------------------------------
 Popcorn Chicken
 Dipping Sauce Cup
@@ -2629,7 +2629,7 @@ OFFERED DAILY
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/prek-8-breakfast.pdf ===
+=== ../../fixtures/data/1/prek-8-breakfast.pdf ===
 01 ------------------------------
 Tasty Waffles
 Served with Syrup
@@ -2868,7 +2868,7 @@ Seasonal Fresh Fruit
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/cold-lunch-saturday.pdf ===
+=== ../../fixtures/data/1/cold-lunch-saturday.pdf ===
 01 ------------------------------
 No menu found for this day
 ---------------------------------
@@ -2965,7 +2965,7 @@ No menu found for this day
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/cold-afterschool.pdf ===
+=== ../../fixtures/data/1/cold-afterschool.pdf ===
 01 ------------------------------
 Freshly Made Sandwiches
 Turkey & Cheese
@@ -3183,7 +3183,7 @@ Milk
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/alternative-afterschool.pdf ===
+=== ../../fixtures/data/1/alternative-afterschool.pdf ===
 01 ------------------------------
 Classic Tuna
 on Ciabatta Bread
@@ -3332,7 +3332,7 @@ OFFERED DAILY
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/hs-breakfast.pdf ===
+=== ../../fixtures/data/1/hs-breakfast.pdf ===
 01 ------------------------------
 Tasty Waffles
 Served with Syrup
@@ -3570,7 +3570,7 @@ Bagel Bar
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/prek-8-lunch.pdf ===
+=== ../../fixtures/data/1/prek-8-lunch.pdf ===
 01 ------------------------------
 Popcorn Chicken
 Dipping Sauce Cup
@@ -3850,7 +3850,7 @@ Fresh Cilantro Slaw
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/classroom-breakfast.pdf ===
+=== ../../fixtures/data/1/classroom-breakfast.pdf ===
 01 ------------------------------
 Turkey Bacon, Egg &
 Cheese Breakfast Toast
@@ -4030,7 +4030,7 @@ OFFERED DAILY
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/early-childhood-lunch.pdf ===
+=== ../../fixtures/data/1/early-childhood-lunch.pdf ===
 01 ------------------------------
 Popcorn Chicken
 Dipping Sauce Cup
@@ -4217,7 +4217,7 @@ OFFERED DAILY
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/hs-express-hot-lunch.pdf ===
+=== ../../fixtures/data/1/hs-express-hot-lunch.pdf ===
 01 ------------------------------
 Popcorn Chicken
 Dipping Sauce Cup
@@ -4406,7 +4406,7 @@ OFFERED DAILY
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/special-needs-breakfast.pdf ===
+=== ../../fixtures/data/1/special-needs-breakfast.pdf ===
 01 ------------------------------
 French Toast Sticks
 Served with Syrup
@@ -4596,7 +4596,7 @@ OFFERED DAILY
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/hot-lunch-saturday.pdf ===
+=== ../../fixtures/data/1/hot-lunch-saturday.pdf ===
 01 ------------------------------
 No menu found for this day
 ---------------------------------
@@ -4693,7 +4693,7 @@ No menu found for this day
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/early-childhood-snack-afterschool.pdf ===
+=== ../../fixtures/data/1/early-childhood-snack-afterschool.pdf ===
 01 ------------------------------
 Multigrain Cheerios
 Milk
@@ -4822,7 +4822,7 @@ Milk
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/hs-alternative-lunch.pdf ===
+=== ../../fixtures/data/1/hs-alternative-lunch.pdf ===
 01 ------------------------------
 Red, White and Green Panini
 Parmigiana Roasted
@@ -5058,7 +5058,7 @@ Confetti Corn Salad
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/vegetarian-breakfast.pdf ===
+=== ../../fixtures/data/1/vegetarian-breakfast.pdf ===
 01 ------------------------------
 Tasty Waffles
 Served with Syrup
@@ -5301,7 +5301,7 @@ Seasonal Fresh Fruit
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/cold-morning-snack-saturday.pdf ===
+=== ../../fixtures/data/1/cold-morning-snack-saturday.pdf ===
 01 ------------------------------
 No menu found for this day
 ---------------------------------
@@ -5398,7 +5398,7 @@ No menu found for this day
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/hs-express-cold-lunch.pdf ===
+=== ../../fixtures/data/1/hs-express-cold-lunch.pdf ===
 01 ------------------------------
 Hummus Grab & Go
 Lunch Pack
@@ -5561,7 +5561,7 @@ Marinated Green Beans
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/snack-afterschool.pdf ===
+=== ../../fixtures/data/1/snack-afterschool.pdf ===
 01 ------------------------------
 Upstate Farms®
 Yogurt
@@ -5720,7 +5720,7 @@ Seasonal Fresh Fruit
 32 ------------------------------
 No menu found for this day
 ---------------------------------
-=== ../../fixtures/all/prek-8-express-cold-lunch.pdf ===
+=== ../../fixtures/data/1/prek-8-express-cold-lunch.pdf ===
 01 ------------------------------
 Hummus Grab & Go
 Lunch Pack

@@ -3,9 +3,16 @@ require 'nokogiri'
 
 class NycSchoolFoodCal::PdfXmlConverter
   def parse(pdf_content)
-    stdin, stdout = Open3.popen2('pdftotext -bbox - -')
+    stdin, stdout, stderr = Open3.popen3('pdftotext -bbox - -')
     stdin.write(pdf_content)
     stdin.close
-    stdout.readlines.join('')
+
+    result = stdout.readlines.join
+
+    raise ParseError.new(stderr) unless result.include?('DOCTYPE')
+
+    result
   end
+
+  class ParseError < RuntimeError; end
 end

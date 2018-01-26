@@ -16,6 +16,12 @@ class NycSchoolFoodCal::XmlCalendarConverter
 
     calendar_builder = NycSchoolFoodCal::CalendarBuilder.new(collector.day_locations, collector.content_locations)
 
-    calendar_builder.data
+    result = calendar_builder.data
+
+    raise ParseError if result.empty?
+
+    result
   end
+
+  class ParseError < RuntimeError; end
 end

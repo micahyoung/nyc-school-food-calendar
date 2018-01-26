@@ -1,18 +1,19 @@
 require 'date'
 
 class NycSchoolFoodCal::Runner
-  def initialize
+  def initialize(data_file_path:)
     @pdf_xml_converter = NycSchoolFoodCal::PdfXmlConverter.new
     @xml_calendar_parser = NycSchoolFoodCal::XmlCalendarConverter.new
+    @file_finder = NycSchoolFoodCal::FileFinder.new(data_file_path: data_file_path)
   end
 
-  def run(pdf_file, day)
-    pdf_content = File.read(pdf_file)
-    pdf_xml = @pdf_xml_converter.parse(pdf_content)
-    calendar = @xml_calendar_parser.parse(pdf_xml)
-    if calendar.has_key?(day)
+  def run(calendar:, month:, day:)
+    begin
+      calendar_pdf = @file_finder.get_content(calendar: calendar, month: month)
+      pdf_xml = @pdf_xml_converter.parse(calendar_pdf)
+      calendar = @xml_calendar_parser.parse(pdf_xml)
       calendar.fetch(day)
-    else
+    rescue RuntimeError, KeyError
       "No menu found for this day"
     end
   end
