@@ -3,9 +3,11 @@ require 'request_spec_helper'
 
 describe 'Request' do
   it do
-    response = get '/', params={calendar: 'prek-8-lunch', month: '1', day: '17'}
+    response = get '/', params = {calendar: 'prek-8-lunch', month: '1', day: '17'}
 
-    expect(response.body).to eq <<EOF.rstrip
+    expect(response.body).to eq ({
+        content: {
+            menu: <<EOF.rstrip,
 "Super Chef"
 Shepherd's Pie
 A Delicious Blend of Mashed
@@ -17,5 +19,11 @@ Broccoli Trees
 Salad Bar
 Confetti Corn Salad
 EOF
+        calendar: 'prek-8-lunch',
+        month: '1',
+        day: '17',
+
+    }
+    }.to_json)
   end
 end
