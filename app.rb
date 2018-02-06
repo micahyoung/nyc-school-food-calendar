@@ -21,5 +21,3 @@ class NycSchoolFoodCalApp < Sinatra::Base
   end
 
 end
-
-NycSchoolFoodCalApp.run!

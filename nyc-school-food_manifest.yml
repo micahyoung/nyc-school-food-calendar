@@ -1,6 +1,6 @@
 applications:
 - name: nyc-school-food
-  command: source deps-source.sh; bundle exec ruby app.rb -p $PORT
+  command: source deps-source.sh; bundle exec thin -R config.ru -p $PORT start
   disk_quota: 1G
   instances: 1
   memory: 1G
