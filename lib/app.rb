@@ -1,5 +1,3 @@
-$:.unshift File.dirname(__FILE__) + '/lib'
-
 require 'sinatra/base'
 require 'nyc_school_food_cal'
 
