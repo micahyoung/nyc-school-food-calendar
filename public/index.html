@@ -91,17 +91,13 @@
       var menuEl = document.querySelector("#menu")
 
       menuEl.innerHTML = `<nav>
-                            <div>
                               <select onchange="javascript:calendarSelect()">
                                 ${calendars.map(function(cal){
                                   return `<option value="${cal}">${cal}</option>`
                                 })}
                               </select>
-                            </div>
-                            <div>
                               <button onclick="javascript:prev()" > Back </button>
                               <button onclick="javascript:next()" > Next </button>
-                            </div>
                           </nav>
                           <h2> ${state.date.toDateString()} </h2>
                           <pre>${state.menu}</pre>`
@@ -113,7 +109,7 @@
   </head>
 
   <body>
-    <section id="menu"></section>
+  <section id="menu"></section>
   </body>
 
   <script>
