@@ -1,0 +1,25 @@
+<html>
+  <head>
+  <script>
+    var calendar = 'prek-8-lunch'
+    var date = new Date()
+    var day = date.getDate()
+    var month = date.getMonth() + 1
+    var requestPath = `/api/v1?month=${month}&day=${day}&calendar=${calendar}`
+
+    fetch(requestPath)
+      .then(function(response){
+        return response.json()
+      })
+      .then(function(json){
+        var menuEl = document.querySelector("#menu")
+        menuEl.innerHTML = "<pre>" + json.content.menu + "</pre>"
+      })
+  </script>
+  </head>
+  <body>
+    <h2>Menu for today:</h2>
+    <section id="menu">
+    </section>
+  </body>
+</html>
