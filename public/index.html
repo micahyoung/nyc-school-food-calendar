@@ -52,7 +52,7 @@
       var apiDay = state.date.getDate()
       var apiMonth = state.date.getMonth() + 1
 
-      var requestPath = `/api/v1?month=${apiMonth}&day=${apiDay}&calendar=${apiCalendar}`
+      var requestPath = `/api/v1/menus?month=${apiMonth}&day=${apiDay}&calendar=${apiCalendar}`
 
       fetch(requestPath)
         .then(function(response){

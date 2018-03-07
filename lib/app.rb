@@ -15,7 +15,7 @@ class NycSchoolFoodCalApp < Sinatra::Base
       redirect '/index.html'
   end
 
-  get '/api/v1' do
+  get '/api/v1/menus' do
     calendar, month, day = params[:calendar], params[:month], params[:day]
     response = runner.run(calendar: calendar, month: month, day: day)
 

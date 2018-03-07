@@ -12,10 +12,10 @@ describe 'Request' do
     end
   end
 
-  describe 'GET /api/v1' do
+  describe 'GET /api/v1/menus' do
     it 'returns json' do
 
-      response = get '/api/v1', params = {calendar: 'prek-8-lunch', month: '1', day: '17'}
+      response = get '/api/v1/menus', params = {calendar: 'prek-8-lunch', month: '1', day: '17'}
 
       expect(JSON.parse(response.body)).to eq JSON.parse('
 {
