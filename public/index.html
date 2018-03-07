@@ -49,14 +49,26 @@ function update() {
   });
 }
 
+function nextDate() {
+  var nextDate = new Date(state.date)
+  nextDate.setDate(state.date.getDate() + 1)
+  return nextDate
+}
+
+function prevDate() {
+  var prevDate = new Date(state.date)
+  prevDate.setDate(state.date.getDate() - 1)
+  return prevDate
+}
+
 function prev() {
-  state.date.setDate(state.date.getDate() - 1)
+  state.date = prevDate()
 
   update()
 }
 
 function next() {
-  state.date.setDate(state.date.getDate() + 1)
+  state.date = nextDate()
 
   update()
 }
@@ -69,6 +81,8 @@ function calendarSelect() {
 
 function render() {
   var menuEl = document.querySelector("#menu")
+  var prevDay = prevDate().toDateString().split(/ /)[0]
+  var nextDay = nextDate().toDateString().split(/ /)[0]
 
   menuEl.innerHTML = `<nav>
                         <select onchange="javascript:calendarSelect()">
@@ -76,8 +90,8 @@ function render() {
                             return `<option value="${cal}">${cal}</option>`
                           })}
                         </select>
-                        <button onclick="javascript:prev()" > Back </button>
-                        <button onclick="javascript:next()" > Next </button>
+                        <button onclick="javascript:prev()" > ${prevDay} </button>
+                        <button onclick="javascript:next()" > ${nextDay} </button>
                     </nav>
                     <h2> ${state.date.toDateString()} </h2>
                     <pre>${state.menu}</pre>`
