@@ -84,7 +84,7 @@ function render() {
   var prevDay = prevDate().toDateString().split(/ /)[0]
   var nextDay = nextDate().toDateString().split(/ /)[0]
 
-  menuEl.innerHTML = `<nav>
+  menuEl.innerHTML = `<nav style="white-space:nowrap">
                         <select onchange="javascript:calendarSelect()">
                           ${state.availableCalendars.map(function(cal){
                             return `<option value="${cal}">${cal}</option>`
@@ -97,9 +97,9 @@ function render() {
                     <pre>${state.menu}</pre>`
 
                     document.querySelector("select").value = state.calendar
-}
+                    }
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
   </head>
 
   <body>
