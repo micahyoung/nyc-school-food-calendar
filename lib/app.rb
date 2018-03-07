@@ -17,11 +17,19 @@ class NycSchoolFoodCalApp < Sinatra::Base
 
   get '/api/v1/menus' do
     calendar, month, day = params[:calendar], params[:month], params[:day]
-    response = runner.run(calendar: calendar, month: month, day: day)
+    response = runner.menu(calendar: calendar, month: month, day: day)
 
     content_type :json
 
     {content: {menu: response, calendar: calendar, month: month, day: day}}.to_json
+  end
+
+  get '/api/v1/calendars' do
+    content_type :json
+
+    response = runner.calendars
+
+    {content: {calendars: response}}.to_json
   end
 
 end

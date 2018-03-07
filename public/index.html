@@ -1,115 +1,95 @@
 <html>
   <head>
-  <script>
-    var state = {}
-    var calendars = [
-      "alternative-afterschool",
-      "classroom-breakfast",
-      "cold-afterschool",
-      "cold-lunch-saturday",
-      "cold-morning-snack-saturday",
-      "early-childhood-breakfast",
-      "early-childhood-lunch",
-      "early-childhood-snack-afterschool",
-      "express-breakfast",
-      "hot-afterschool",
-      "hot-lunch-saturday",
-      "hot-morning-snack-saturday",
-      "hs-alternative-lunch",
-      "hs-breakfast",
-      "hs-express-cold-lunch",
-      "hs-express-hot-lunch",
-      "hs-lunch",
-      "hs-special-needs-lunch",
-      "ms-lunch",
-      "prek-8-alternative-lunch",
-      "prek-8-breakfast",
-      "prek-8-express-cold-lunch",
-      "prek-8-express-hot-lunch",
-      "prek-8-lunch",
-      "prek-8-special-needs-lunch",
-      "prek-8-vegetarian-lunch",
-      "puree-lunch",
-      "snack-afterschool",
-      "special-needs-breakfast",
-      "vegetarian-breakfast",
-    ]
+    <script>
+var state = {}
 
-    function init() {
-      var calendar = 'prek-8-lunch'
+function init() {
+  var calendar = 'prek-8-lunch'
+  var date = new Date()
+
+  state = {
+    calendar: calendar,
+    date: date
+  }
+
+  update()
+}
+
+function update() {
+  var apiCalendar = state.calendar
+  var apiDay = state.date.getDate()
+  var apiMonth = state.date.getMonth() + 1
+
+  var calendarRequestPath = `/api/v1/calendars`
+  var menuRequestPath = `/api/v1/menus?month=${apiMonth}&day=${apiDay}&calendar=${apiCalendar}`
+
+  var calendarFetch = fetch(calendarRequestPath)
+    .then(function(response){
+      return response.json()
+    })
+    .then(function(json){
+      state.availableCalendars = json.content.calendars
+    })
+
+  var menuFetch = fetch(menuRequestPath)
+    .then(function(response){
+      return response.json()
+    })
+    .then(function(json){
       var date = new Date()
+      date.setDate(json.content.day)
+      date.setMonth(json.content.month - 1)
 
-      state = {
-        calendar: calendar,
-        date: date
-      }
+      state.date = date
+      state.menu = json.content.menu
+    })
 
-      update()
-    }
+  Promise.all([menuFetch, calendarFetch]).then(function() {
+    render()
+  });
+}
 
-    function update() {
-      var apiCalendar = state.calendar
-      var apiDay = state.date.getDate()
-      var apiMonth = state.date.getMonth() + 1
+function prev() {
+  state.date.setDate(state.date.getDate() - 1)
 
-      var requestPath = `/api/v1/menus?month=${apiMonth}&day=${apiDay}&calendar=${apiCalendar}`
+  update()
+}
 
-      fetch(requestPath)
-        .then(function(response){
-          return response.json()
-        })
-        .then(function(json){
-          var date = new Date()
-          date.setDate(json.content.day)
-          date.setMonth(json.content.month - 1)
+function next() {
+  state.date.setDate(state.date.getDate() + 1)
 
-          state.date = date
-          state.menu = json.content.menu
-          render()
-        })
-    }
+  update()
+}
 
-    function prev() {
-      state.date.setDate(state.date.getDate() - 1)
+function calendarSelect() {
+  state.calendar = document.querySelector("select").value
 
-      update()
-    }
+  update()
+}
 
-    function next() {
-      state.date.setDate(state.date.getDate() + 1)
+function render() {
+  var menuEl = document.querySelector("#menu")
 
-      update()
-    }
+  menuEl.innerHTML = `<nav>
+                        <select onchange="javascript:calendarSelect()">
+                          ${state.availableCalendars.map(function(cal){
+                            return `<option value="${cal}">${cal}</option>`
+                          })}
+                        </select>
+                        <button onclick="javascript:prev()" > Back </button>
+                        <button onclick="javascript:next()" > Next </button>
+                    </nav>
+                    <h2> ${state.date.toDateString()} </h2>
+                    <pre>${state.menu}</pre>`
 
-    function calendarSelect() {
-      state.calendar = document.querySelector("select").value
-
-      update()
-    }
-
-    function render() {
-      var menuEl = document.querySelector("#menu")
-
-      menuEl.innerHTML = `<nav>
-                              <select onchange="javascript:calendarSelect()">
-                                ${calendars.map(function(cal){
-                                  return `<option value="${cal}">${cal}</option>`
-                                })}
-                              </select>
-                              <button onclick="javascript:prev()" > Back </button>
-                              <button onclick="javascript:next()" > Next </button>
-                          </nav>
-                          <h2> ${state.date.toDateString()} </h2>
-                          <pre>${state.menu}</pre>`
-
-      document.querySelector("select").value = state.calendar
-    }
-  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+                    document.querySelector("select").value = state.calendar
+}
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
-  <section id="menu"></section>
+    <section id="menu"></section>
   </body>
 
   <script>

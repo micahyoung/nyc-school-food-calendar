@@ -22,4 +22,16 @@ describe 'FileFinder' do
       end
     end
   end
+
+  describe '#get_calendar_names' do
+    let(:finder) do
+      NycSchoolFoodCal::FileFinder.new(data_file_path: fixture_path('data'))
+    end
+
+    it 'returns content' do
+      result = finder.get_calendar_names
+
+      expect(result).to include 'prek-8-lunch'
+    end
+  end
 end

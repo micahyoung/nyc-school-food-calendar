@@ -7,7 +7,7 @@ class NycSchoolFoodCal::Runner
     @file_finder = NycSchoolFoodCal::FileFinder.new(data_file_path: data_file_path)
   end
 
-  def run(calendar:, month:, day:)
+  def menu(calendar:, month:, day:)
     begin
       calendar_pdf = @file_finder.get_content(calendar: calendar, month: month)
       pdf_xml = @pdf_xml_converter.parse(calendar_pdf)
@@ -18,5 +18,9 @@ class NycSchoolFoodCal::Runner
 
       "No menu found for this day"
     end
+  end
+
+  def calendars
+      calendar_names = @file_finder.get_calendar_names
   end
 end

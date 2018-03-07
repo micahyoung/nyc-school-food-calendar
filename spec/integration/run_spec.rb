@@ -4,7 +4,7 @@ describe 'Run' do
   let(:runner) { NycSchoolFoodCal::Runner.new(data_file_path: fixture_path('data')) }
 
   it 'should returns menu for date' do
-    expect(runner.run(calendar: 'prek-8-breakfast', month: '1', day: '1')).to eq <<EOF.rstrip
+    expect(runner.menu(calendar: 'prek-8-breakfast', month: '1', day: '1')).to eq <<EOF.rstrip
 Tasty Waffles
 Served with Syrup
 Turkey Canadian Bacon
@@ -24,7 +24,7 @@ EOF
 
           calendar_name = File.basename(file, ".pdf")
           month = File.dirname(file).split('/').last
-          result = runner.run(calendar: calendar_name, month: month, day: day.to_s)
+          result = runner.menu(calendar: calendar_name, month: month, day: day.to_s)
 
           audit_log.puts result
           audit_log.puts sprintf('-' * 33, day)
@@ -37,7 +37,7 @@ EOF
 
   it 'returns warning when not found' do
     expect(NycSchoolFoodCal::Logger).to receive(:warn)
-    expect(runner.run(calendar: 'never-find', month: '1', day: '1')).to eq <<EOF.rstrip
+    expect(runner.menu(calendar: 'never-find', month: '1', day: '1')).to eq <<EOF.rstrip
 No menu found for this day
 EOF
   end

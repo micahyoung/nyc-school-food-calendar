@@ -15,6 +15,10 @@ class NycSchoolFoodCal::FileFinder
     File.read(file)
   end
 
+  def get_calendar_names
+    available_files.map {|f| File.basename(f, '.*')}.sort.uniq
+  end
+
   private
 
   def available_files
